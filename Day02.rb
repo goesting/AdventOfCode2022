@@ -1,5 +1,5 @@
 part = 2
-input = File.read('C:\Users\tpz1ppc\AoC22\input\day02.txt')
+input = File.read('input\day02.txt')
 
 #### part1 ###
 if part == 1
