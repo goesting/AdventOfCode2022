@@ -2,8 +2,8 @@
 doingTest = false
 day=1
 ### Load file ###
-filePointer = doingTest ? "C:\\Users\\tpz1ppc\\AoC22\\input\\day#{day.to_s.rjust(2,'0')}test.txt" 
-                        : "C:\\Users\\tpz1ppc\\AoC22\\input\\day#{day.to_s.rjust(2,'0')}.txt"
+filePointer = doingTest ? "input\\day#{day.to_s.rjust(2,'0')}test.txt" 
+                        : "input\\day#{day.to_s.rjust(2,'0')}.txt"
 if !File.exist?(filePointer)
     warn "You forgot the input, dummy. @ #{filePointer}"
 elsif File.zero?(filePointer)
