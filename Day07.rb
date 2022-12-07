@@ -1,22 +1,14 @@
+#====init bruv====
 input = File.read('input\day07.txt').split("\n").map(&:split)
-puts input.map{_1[0].to_i}.sum
 parentDirs = []
 dirSize={'/' => 0}
+#====solve====
 input.each{|x|
-    #warn "x is currently #{x.inspect}"
-if x[0] == 'dir'
-    dirSize[x[1]] = 0 if !dirSize.key?(x[1])
-elsif x[0] == '$'
-    if x[1] == "cd"
-        if x[2] == '..'
-            #warn parentDirs.inspect
-            parentDirs.pop
-        else
-            parentDirs << x[2]
-        end
+    case x[0]
+        when 'dir' then dirSize[parentDirs*'/' + x[1]] = 0 if !dirSize.key?(parentDirs*'/' + x[1])
+        when '$'   then x[2] == '..' ? parentDirs.pop : parentDirs << (parentDirs*'/' + x[2]) if x[1] == "cd"
+        else parentDirs.each{|r|dirSize[r] += x[0].to_i }
     end
-else
-    parentDirs.each{|r|dirSize[r] += x[0].to_i }
-end
 }
 puts dirSize.values.reject{_1>100000}.sum
+puts dirSize.select{|k,v| v > (30000000 - 70000000 + dirSize['/'])}.sort_by{|k,v| v}.first[1]
