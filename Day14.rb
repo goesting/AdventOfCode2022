@@ -5,7 +5,7 @@ input = File.read('input\day14.txt').split("\n").map{|line| line.split(' -> ').m
 dropH,dropW = [0,500]
 minH,maxH = input.map{|section| section.map{|l| l.map{|point| point[1]}}}.flatten.minmax
 minH = [minH,dropH].min
-maxW,minW = input.map{|section| section.map{|l| l.map{|point| point[0]}}}.flatten.minmax
+minW,maxW = input.map{|section| section.map{|l| l.map{|point| point[0]}}}.flatten.minmax
 
  #Adjustements to help with part 2
 maxH = maxH + 2
