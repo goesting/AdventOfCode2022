@@ -41,11 +41,11 @@ while !sandOutside do #drop more sand untill one of them falls off
     sandX = dropW - minW    # probably not needed for Y
     sandFalling = true
     while sandFalling do #loop to drop a single sand untill it settles or falls off
-        if sandY+1 > maxH #Check right below you first
+        if sandY+1 > maxH #falling out?
             sandOutside = true
             sandFalling = false
         else
-            case cave[sandY+1][sandX] 
+            case cave[sandY+1][sandX] #Check right below you first
             when '.'
                 sandY += 1
             else
